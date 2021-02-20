@@ -1,4 +1,7 @@
-<?php require "templates/header.php"; ?>
+<?php
+	require "templates/header.php";
+	define("PAGE", "");
+?>
 
 <body>
 	<?php require "templates/navbar.php"; ?>

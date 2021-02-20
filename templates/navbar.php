@@ -4,7 +4,12 @@
 
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a href="login.php" class="nav-link">Entrar</a>
+				<a
+					href="login.php"
+					class="nav-link <?php if (PAGE == "Entrar") echo "active"; ?>"
+				>
+					Entrar
+				</a>
 			</li>
 		</ul>
 	</div>
