@@ -1,6 +1,6 @@
 <?php
-	require "templates/header.php";
 	define("PAGE", "");
+	require "templates/header.php";
 ?>
 
 <body>
