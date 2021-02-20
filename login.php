@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	define("PAGE", "Entrar");
 	require "templates/header.php";
 ?>

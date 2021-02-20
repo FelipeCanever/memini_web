@@ -1,4 +1,9 @@
 <?php
+	session_start();
+
+	if (isset($_POST["login"]))
+		$_SESSION["username"] = $_POST["username"];
+
 	define("PAGE", "");
 	require "templates/header.php";
 ?>
