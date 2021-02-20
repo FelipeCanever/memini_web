@@ -23,6 +23,7 @@
 		<div class="row">
 			<div class="col">
 				<h1><?= TITLE ?></h1>
+				<p class="lead">Bem-vindo ao <em>site</em> de <?= TITLE ?>.</p>
 			</div>
 		</div>
 	</div>
