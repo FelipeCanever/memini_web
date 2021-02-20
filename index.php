@@ -19,10 +19,15 @@
 	>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a href="#" class="navbar-brand"><?= TITLE ?></a>
+		</div>
+	</nav>
+
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1><?= TITLE ?></h1>
 				<p class="lead">Bem-vindo ao <em>site</em> de <?= TITLE ?>.</p>
 			</div>
 		</div>
