@@ -4,12 +4,16 @@
 
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a
-					href="login.php"
-					class="nav-link <?php if (PAGE == "Entrar") echo "active"; ?>"
-				>
-					Entrar
-				</a>
+				<?php if (!isset($_SESSION["username"])): ?>
+					<a
+						href="login.php"
+						class="nav-link <?php if (PAGE == "Entrar") echo "active"; ?>"
+					>
+						Entrar
+					</a>
+				<?php else: ?>
+					<span class="nav-link"><?= $_SESSION["username"] ?></span>
+				<?php endif; ?>
 			</li>
 		</ul>
 	</div>
