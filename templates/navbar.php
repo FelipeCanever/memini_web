@@ -7,9 +7,9 @@
 				<?php if (!isset($_SESSION["username"])): ?>
 					<a
 						href="login.php"
-						class="nav-link <?php if (PAGE == "Entrar") echo "active"; ?>"
+						class="nav-link <?php if (PAGE == "Login") echo "active"; ?>"
 					>
-						Entrar
+						Log In
 					</a>
 				<?php else: ?>
 					<span class="nav-link"><?= $_SESSION["username"] ?></span>
