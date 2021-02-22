@@ -22,7 +22,7 @@
 					</a>
 					<!-- Log Out -->
 					<ul class="dropdown-menu" aria-labelledby="userDropdown">
-						<li><a href="#" class="dropdown-item">Log Out</a></li>
+						<li><a href="logout.php" class="dropdown-item">Log Out</a></li>
 					</ul>
 				</li>
 			<?php endif; ?>
