@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
+		<!-- Title -->
 		<a href="index.php" class="navbar-brand"><?= TITLE ?></a>
 
 		<ul class="navbar-nav">
@@ -19,7 +20,7 @@
 							aria-expanded="false">
 						<?= $_SESSION["username"] ?>
 					</a>
-
+					<!-- Log Out -->
 					<ul class="dropdown-menu" aria-labelledby="userDropdown">
 						<li><a href="#" class="dropdown-item">Log Out</a></li>
 					</ul>
