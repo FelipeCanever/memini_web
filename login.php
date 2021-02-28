@@ -1,6 +1,9 @@
 <?php
 	session_start();
+
+	// Definir título da página.
 	define("PAGE", "Entrar");
+	
 	require "templates/header.php";
 ?>
 
