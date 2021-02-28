@@ -13,7 +13,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="lead">Bem-vindo ao <em>site</em> de <?= TITLE ?>.</p>
+				<p class="display-6">Bem-vindo ao Memini</p>
+
+				<p class="lead">
+					Crie <strong><em>flashcards</em></strong> e,
+					utilizando o sistema de <strong>repetição espaçada</strong>,
+					revise-as de forma que possa decorá-las mais eficientemente.
+				</p>
 			</div>
 		</div>
 	</div>
