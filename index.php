@@ -1,10 +1,6 @@
 <?php
 	session_start();
 
-	// Criar sessão.
-	if (isset($_POST["login"]))
-		$_SESSION["username"] = $_POST["username"];
-
 	// Definir título da página.
 	define("PAGE", "");
 

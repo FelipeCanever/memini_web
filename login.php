@@ -3,7 +3,7 @@
 
 	// Definir título da página.
 	define("PAGE", "Entrar");
-	
+
 	require "templates/header.php";
 ?>
 
@@ -16,7 +16,7 @@
 
 			<div class="col-md-4">
 				<!-- Formulário -->
-				<form method="POST" action="index.php">
+				<form method="POST" action="authentication.php">
 					<!-- Nome de usuário -->
 					<div class="mb-3">
 						<label for="username" class="form-label">Nome de usuário</label>
