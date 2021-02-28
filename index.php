@@ -28,6 +28,31 @@
 						utilizando o sistema de <strong>repetição espaçada</strong>,
 						revise-as de forma que possa decorá-las mais eficientemente.
 					</p>
+				<?php else: ?>
+					<!-- Baralhos -->
+					<h2>Seus baralhos</h2>
+
+					<div class="container">
+						<div class="row">
+							<?php require "data.php"; ?>
+
+							<?php foreach ($decks as $deck): ?>
+								<!-- Baralho -->
+								<div class="col-3">
+									<div class="card text-dark bg-light">
+										<div class="card-body">
+											<h5 class="card-title"><?= $deck["title"] ?></h5>
+											<p class="card-text"><?= $deck["description"] ?></p>
+
+											<a href="#" class="btn btn-primary">Abrir</a>
+											<a href="#" class="btn btn-secondary">Estudar</a>
+											<a href="#" class="btn btn-danger">Excluir</a>
+										</div>
+									</div>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>
