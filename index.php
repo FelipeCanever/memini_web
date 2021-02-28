@@ -50,9 +50,9 @@
 							<h5 class="card-title"><?= $deck["title"] ?></h5>
 							<p class="card-text"><?= $deck["description"] ?></p>
 
-							<a href="#" class="btn btn-primary">Abrir</a>
-							<a href="#" class="btn btn-secondary disabled">Estudar</a>
-							<a href="#" class="btn btn-danger disabled">Excluir</a>
+							<a href="#" class="btn btn-sm btn-primary">Abrir</a>
+							<a href="#" class="btn btn-sm btn-secondary disabled">Estudar</a>
+							<a href="#" class="btn btn-sm btn-danger disabled">Excluir</a>
 						</div>
 					</div>
 				</div>
