@@ -28,10 +28,19 @@
 						<input type="password" name="password" class="form-control">
 					</div>
 
-					<button type="submit" name="login" class="btn btn-primary">
+					<button type="submit" name="login" class="btn btn-primary mb-3">
 						Entrar
 					</button>
 				</form>
+
+				<!-- Mensagem de validação -->
+				<?php if (isset($_SESSION["invalid"])): ?>
+					<div class="alert alert-danger" role="alert">
+						Nome de usuário ou senha inválidos.
+					</div>
+
+					<?php unset($_SESSION["invalid"]); ?>
+				<?php endif; ?>
 			</div>
 
 			<div class="col-md-4"></div>
