@@ -13,13 +13,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="display-6">Bem-vindo ao Memini</p>
-
-				<p class="lead">
-					Crie <strong><em>flashcards</em></strong> e,
-					utilizando o sistema de <strong>repetição espaçada</strong>,
-					revise-as de forma que possa decorá-las mais eficientemente.
+				<!-- Título -->
+				<p class="display-6">
+					<?php if (!isset($_SESSION["username"])): ?>
+						Bem-vindo ao <?= TITLE ?>
+					<?php else: ?>
+						Bem-vindo, <strong><?= $_SESSION["username"] ?></strong>
+					<?php endif; ?>
 				</p>
+
+				<?php if (!isset($_SESSION["username"])): ?>
+					<p class="lead">
+						Crie <strong><em>flashcards</em></strong> e,
+						utilizando o sistema de <strong>repetição espaçada</strong>,
+						revise-as de forma que possa decorá-las mais eficientemente.
+					</p>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
