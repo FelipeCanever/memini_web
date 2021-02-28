@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="lead">Welcome to the <?= TITLE ?> site.</p>
+				<p class="lead">Bem-vindo ao <em>site</em> de <?= TITLE ?>.</p>
 			</div>
 		</div>
 	</div>

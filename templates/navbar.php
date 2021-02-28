@@ -9,7 +9,7 @@
 				<li class="nav-item">
 					<a	href="login.php"
 							class="nav-link <?php if (PAGE == "Login") echo "active"; ?>">
-						Log In
+						Entrar
 					</a>
 				</li>
 			<?php else: ?>
@@ -22,7 +22,7 @@
 					</a>
 					<!-- Log Out -->
 					<ul class="dropdown-menu" aria-labelledby="userDropdown">
-						<li><a href="logout.php" class="dropdown-item">Log Out</a></li>
+						<li><a href="logout.php" class="dropdown-item">Sair</a></li>
 					</ul>
 				</li>
 			<?php endif; ?>

@@ -1,5 +1,5 @@
 <?php
-	define("TITLE", "Web Systems Development");
+	define("TITLE", "Desenvolvimento de Sistemas Web");
 ?>
 
 <!DOCTYPE html>

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	define("PAGE", "Login");
+	define("PAGE", "Entrar");
 	require "templates/header.php";
 ?>
 
@@ -16,17 +16,17 @@
 				<form method="POST" action="index.php">
 					<!-- Username -->
 					<div class="mb-3">
-						<label for="username" class="form-label">Username</label>
+						<label for="username" class="form-label">Nome de usuário</label>
 						<input type="text" name="username" class="form-control">
 					</div>
 					<!-- Password -->
 					<div class="mb-3">
-						<label for="password" class="form-label">Password</label>
+						<label for="password" class="form-label">Senha</label>
 						<input type="password" name="password" class="form-control">
 					</div>
 
 					<button type="submit" name="login" class="btn btn-primary">
-						Log In
+						Entrar
 					</button>
 				</form>
 			</div>
