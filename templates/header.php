@@ -1,6 +1,6 @@
 <?php
 	// Definir título da página.
-	define("TITLE", "Desenvolvimento de Sistemas Web");
+	define("TITLE", "Memini");
 ?>
 
 <!DOCTYPE html>
