@@ -3,9 +3,18 @@
 
 	session_start();
 
-	// Criar sessão.
-	if (isset($_POST["login"]))
-		$_SESSION["username"] = $_POST["username"];
+	define("USERNAME", "felipe");
+	define("PASSWORD", "12345");
 
-	redirect("index.php");
+	$destination = "";
+
+	if (isset($_POST["login"]))
+		if ($_POST["username"] == USERNAME && $_POST["password"] == PASSWORD) {
+		$_SESSION["username"] = $_POST["username"];
+			$destination = "index.php";
+		} else {
+			$destination = "login.php";
+		}
+
+	redirect($destination);
 ?>
