@@ -12,14 +12,14 @@
 			<div class="col-md-4"></div>
 
 			<div class="col-md-4">
-				<!-- Form -->
+				<!-- Formulário -->
 				<form method="POST" action="index.php">
-					<!-- Username -->
+					<!-- Nome de usuário -->
 					<div class="mb-3">
 						<label for="username" class="form-label">Nome de usuário</label>
 						<input type="text" name="username" class="form-control">
 					</div>
-					<!-- Password -->
+					<!-- Senha -->
 					<div class="mb-3">
 						<label for="password" class="form-label">Senha</label>
 						<input type="password" name="password" class="form-control">

@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
-		<!-- Title -->
+		<!-- Título -->
 		<a href="index.php" class="navbar-brand"><?= TITLE ?></a>
 
 		<ul class="navbar-nav">
 			<?php if (!isset($_SESSION["username"])): ?>
-				<!-- Login -->
+				<!-- Entrar -->
 				<li class="nav-item">
 					<a	href="login.php"
 							class="nav-link <?php if (PAGE == "Login") echo "active"; ?>">
@@ -13,14 +13,14 @@
 					</a>
 				</li>
 			<?php else: ?>
-				<!-- Username -->
+				<!-- Nome de usuário -->
 				<li class="nav-item dropdown">
 					<a	href="#" class="nav-link dropdown-toggle" role="button"
 							id="userDropdown" data-bs-toggle="dropdown"
 							aria-expanded="false">
 						<?= $_SESSION["username"] ?>
 					</a>
-					<!-- Log Out -->
+					<!-- Sair -->
 					<ul class="dropdown-menu" aria-labelledby="userDropdown">
 						<li><a href="logout.php" class="dropdown-item">Sair</a></li>
 					</ul>
