@@ -6,8 +6,11 @@
 
 	require "templates/header.php";
 
-	if (!is_logged_in())
+	if (!is_logged_in() || !isset($_POST["deck"]))
 		redirect("index.php");
+	
+	require "data/decks.php";
+	$deck = $decks[intval($_POST["deck_id"])];
 ?>
 
 <body>
@@ -17,7 +20,7 @@
 		<div class="row">
 			<div class="col">
 				<!-- Título -->
-				<h1>Baralho</h1>
+				<h1><?= $deck["title"] ?></h1>
 			</div>
 		</div>
 
@@ -26,8 +29,8 @@
 			<?php
 				require "data/cards.php";
 
-				$deck_cards = array_filter($cards, function ($card) {
-					return $card["deck_id"] == 0;
+				$deck_cards = array_filter($cards, function ($card) use ($deck) {
+					return $card["deck_id"] == $deck["deck_id"];
 				});
 
 				foreach ($deck_cards as $card)
