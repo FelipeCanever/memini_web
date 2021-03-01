@@ -2,7 +2,7 @@
 	session_start();
 
 	// Definir título da página.
-	define("PAGE", "Deck");
+	define("PAGE", "Baralho");
 
 	require "templates/header.php";
 
