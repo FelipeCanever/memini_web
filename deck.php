@@ -1,16 +1,17 @@
 <?php
+	require "utils.php";
+
 	session_start();
-
-	// Definir título da página.
-	define("PAGE", "Baralho");
-
-	require "templates/header.php";
 
 	if (!is_logged_in() || !isset($_POST["deck"]))
 		redirect("index.php");
 	
 	require "data/decks.php";
 	$deck = $decks[intval($_POST["deck_id"])];
+
+	// Definir título da página.
+	define("PAGE", "Baralho \"{$deck['title']}\"");
+	require "templates/header.php";
 ?>
 
 <body>
