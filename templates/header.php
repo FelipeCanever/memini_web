@@ -1,4 +1,5 @@
 <?php
+	require "utils.php";
 	// Definir título da página.
 	define("TITLE", "Memini");
 ?>

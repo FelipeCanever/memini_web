@@ -4,7 +4,7 @@
 		<a href="index.php" class="navbar-brand"><?= TITLE ?></a>
 
 		<ul class="navbar-nav">
-			<?php if (!isset($_SESSION["username"])): ?>
+			<?php if (!is_logged_in()): ?>
 				<!-- Entrar -->
 				<li class="nav-item">
 					<a	href="login.php"
