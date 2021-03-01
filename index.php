@@ -33,16 +33,16 @@
 						revise-as de forma que possa decorá-las mais eficientemente.
 					</p>
 				<?php else: ?>
-					<!-- Baralhos -->
 					<h2>Seus baralhos</h2>
 				<?php endif; ?>
 			</div>
 		</div>
 
+		<!-- Baralhos -->
 		<?php if (isset($_SESSION["username"])): ?>
 			<div class="row">
 				<?php
-					require "data.php";
+					require "data/decks.php";
 
 					foreach ($decks as $deck)
 						require "templates/deck.php";
