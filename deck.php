@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col">
 				<!-- Título -->
-				<h1><?= $deck["title"] ?></h1>
+				<h1 class="display-6"><?= $deck["title"] ?></h1>
 			</div>
 		</div>
 
