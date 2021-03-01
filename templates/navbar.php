@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
 		<!-- Título -->
 		<a href="index.php" class="navbar-brand"><?= TITLE ?></a>
