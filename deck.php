@@ -22,7 +22,7 @@
 		</div>
 
 		<!-- Cartas -->
-		<div class="row">
+		<div class="row mt-4">
 			<?php
 				require "data/cards.php";
 
