@@ -1,7 +1,7 @@
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4 text-center">
 	<?php $cardId = "card" . $card["card_id"]; ?>
 
-	<div class="card border-dark shadow" id="<?= $cardId ?>">
+	<div class="card border-dark bg-light shadow" id="<?= $cardId ?>">
 		<div class="card-body">
 			<!-- Frente -->
 			<h5 class="card-title mt-5 mb-5" id="<?= $cardId . "Front" ?>">
@@ -9,7 +9,7 @@
 			</h5>
 
 			<!-- Trás -->
-			<h5 class="card-title mt-5 mb-5" id="<?= $cardId . "Back" ?>" style="display: none;">
+			<h5 class="card-title mt-5 mb-5 back" id="<?= $cardId . "Back" ?>" style="display: none;">
 				<?= $card["back"] ?>
 			</h5>
 
