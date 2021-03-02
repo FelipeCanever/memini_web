@@ -3,14 +3,17 @@
 
 	session_start();
 
+	// Sair se não estiver logado ou se não tiver baralho.
 	if (!is_logged_in() || !isset($_POST["deck"]))
 		redirect("index.php");
 	
+	// Carregar baralho.
 	require "data/decks.php";
 	$deck = $decks[intval($_POST["deck_id"])];
 
 	// Definir título da página.
 	define("PAGE", "Baralho \"{$deck['title']}\"");
+
 	require "templates/header.php";
 ?>
 
@@ -18,9 +21,9 @@
 	<?php require "templates/navbar.php"; ?>
 
 	<div class="container">
+		<!-- Título -->
 		<div class="row">
 			<div class="col">
-				<!-- Título -->
 				<h1 class="display-6"><?= $deck["title"] ?></h1>
 			</div>
 		</div>
@@ -30,6 +33,7 @@
 			<?php
 				require "data/cards.php";
 
+				// Obter cartas que pertencem ao baralho.
 				$deck_cards = array_filter($cards, function ($card) use ($deck) {
 					return $card["deck_id"] == $deck["deck_id"];
 				});
@@ -41,7 +45,6 @@
 	</div>
 
 	<?php require "templates/script.php"; ?>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="deck.js"></script>
 </body>
 </html>

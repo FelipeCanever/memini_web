@@ -10,6 +10,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-12 mb-1">
+						<!-- Abrir -->
 						<form action="deck.php" method="post">
 							<input type="hidden" name="deck_id" value="<?= $deck["deck_id"] ?>">
 							<input type="submit" name="deck" value="Abrir" class="btn btn-outline-primary btn-sm w-100 h-100">

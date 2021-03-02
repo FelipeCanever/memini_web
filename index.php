@@ -4,6 +4,7 @@
 
 	// Definir título da página.
 	define("PAGE", "");
+
 	require "templates/header.php";
 ?>
 
@@ -11,9 +12,9 @@
 	<?php require "templates/navbar.php"; ?>
 
 	<div class="container">
+		<!-- Título -->
 		<div class="row">
 			<div class="col">
-				<!-- Título -->
 				<p class="display-6">
 					<?php if (!is_logged_in()): ?>
 						Bem-vindo ao <?= TITLE ?>
@@ -24,6 +25,7 @@
 			</div>
 		</div>
 
+		<!-- Subtítulo -->
 		<div class="row">
 			<div class="col">	
 				<?php if (!is_logged_in()): ?>
