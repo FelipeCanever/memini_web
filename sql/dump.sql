@@ -26,9 +26,9 @@ CREATE TABLE `avii_desenvweb`.`card`(
 	`front`				VARCHAR(255)	NOT NULL,
 	`back`				VARCHAR(255)	NOT NULL,
 
-	`repetition_count`	INT 			NOT NULL,
-	`time_interval`		INT 			NOT NULL,
-	`ease_factor`		REAL 			NOT NULL,
+	`repetition_count`	INT 			NOT NULL	DEFAULT 0,
+	`time_interval`		INT 			NOT NULL	DEFAULT 0,
+	`ease_factor`		REAL 			NOT NULL	DEFAULT 2.5,
 	
 	PRIMARY KEY	(`card_id`),
 
