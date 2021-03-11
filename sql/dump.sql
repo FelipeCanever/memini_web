@@ -1,5 +1,6 @@
 CREATE DATABASE `avii_desenvweb`;
 
+-- Usuário
 CREATE TABLE `avii_desenvweb`.`user`(
 	`user_id`	INT 			NOT NULL	AUTO_INCREMENT,
 	`username`	VARCHAR(255)	NOT NULL,
@@ -8,6 +9,7 @@ CREATE TABLE `avii_desenvweb`.`user`(
 	PRIMARY KEY	(`user_id`)
 );
 
+-- Baralho
 CREATE TABLE `avii_desenvweb`.`deck`(
 	`deck_id`	INT 			NOT NULL	AUTO_INCREMENT,
 	`user_id`	INT 			NOT NULL,
@@ -17,6 +19,7 @@ CREATE TABLE `avii_desenvweb`.`deck`(
 	FOREIGN KEY	(`user_id`)	REFERENCES	`avii_desenvweb`.`user`	(`user_id`)
 );
 
+-- Carta
 CREATE TABLE `avii_desenvweb`.`card`(
 	`card_id`			INT 			NOT NULL	AUTO_INCREMENT,
 
@@ -36,27 +39,31 @@ CREATE TABLE `avii_desenvweb`.`card`(
 	FOREIGN KEY	(`deck_id`)	REFERENCES	`avii_desenvweb`.`deck`	(`deck_id`)
 );
 
+-- Usuários
 INSERT INTO
 `avii_desenvweb`.`user`	(`username`,	`password`)
 VALUES					("felipe",		"060193"),
 						("lucas",		"081293"),
 						("matheus",		"120400");
 
+-- Baralhos
 INSERT INTO
 `avii_desenvweb`.`deck`	(`user_id`,	`title`)
-
+						-- felipe
 VALUES					(1,			"Latim"),
 						(1,			"Francês"),
 						(1,			"Nomes científicos"),
-
+						-- lucas
 						(2,			"Inglês"),
 						(2,			"Tabela periódica"),
-
+						-- matheus
 						(3,			"C++");
 
+-- Cartas
 INSERT INTO
 `avii_desenvweb`.`card`	(`user_id`,	`deck_id`,	`front`,	`back`)
-
+						-- felipe
+						-- Latim
 VALUES					(1,			1,			"casa",			"domus"),
 						(1,			1,			"família",		"familia"),
 						(1,			1,			"homem",		"vir"),
@@ -67,7 +74,7 @@ VALUES					(1,			1,			"casa",			"domus"),
 						(1,			1,			"cachorro",		"canis"),
 						(1,			1,			"gato",			"fēlēs"),
 						(1,			1,			"passarinho",	"avis"),
-
+						-- Francês
 						(1,			2,			"casa",		"maison"),
 						(1,			2,			"família",	"famille"),
 						(1,			2,			"homem",	"homme"),
@@ -77,7 +84,7 @@ VALUES					(1,			1,			"casa",			"domus"),
 						(1,			2,			"bebê",		"bébé"),
 						(1,			2,			"cachorro",	"chien"),
 						(1,			2,			"gato",		"chat"),
-
+						-- Nomes científicos
 						(1,			3,			"ser humano",	"Homo sapiens"),
 						(1,			3,			"chimpanzé",	"Pan troglodytes"),
 						(1,			3,			"cachorro",		"Canis familiaris"),
@@ -87,6 +94,8 @@ VALUES					(1,			1,			"casa",			"domus"),
 						(1,			3,			"laranjeira",	"Citrus × sinensis"),
 						(1,			3,			"champignon",	"Agaricus bisporus"),
 
+						-- lucas
+						-- Inglês
 						(2,			4,			"casa",		"house"),
 						(2,			4,			"família",	"family"),
 						(2,			4,			"homem",	"man"),
@@ -94,7 +103,7 @@ VALUES					(1,			1,			"casa",			"domus"),
 						(2,			4,			"menino",	"boy"),
 						(2,			4,			"menina",	"girl"),
 						(2,			4,			"bebê",		"baby"),
-
+						-- Tabela periódica
 						(2,			5,			"hidrogênio",	"H"),
 						(2,			5,			"hélio",		"He"),
 						(2,			5,			"lítio",		"Li"),
@@ -102,6 +111,8 @@ VALUES					(1,			1,			"casa",			"domus"),
 						(2,			5,			"boro",			"B"),
 						(2,			5,			"carbono",		"C"),
 
+						-- matheus
+						-- C++
 						(3,			6,			"função principal",		"int main()"),
 						(3,			6,			"incluir biblioteca",	"#include <...>"),
 						(3,			6,			"biblioteca de E/S",	"iostream"),
