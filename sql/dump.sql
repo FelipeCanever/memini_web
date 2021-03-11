@@ -41,3 +41,15 @@ INSERT INTO
 VALUES					("felipe",		"060193"),
 						("lucas",		"081293"),
 						("matheus",		"120400");
+
+INSERT INTO
+`avii_desenvweb`.`deck`	(`user_id`,	`title`)
+
+VALUES					(1,			"Latim"),
+						(1,			"Francês"),
+						(1,			"Nomes científicos"),
+
+						(2,			"Inglês"),
+						(2,			"Tabela periódica"),
+
+						(3,			"C++");
