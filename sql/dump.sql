@@ -33,3 +33,9 @@ CREATE TABLE `avii_desenvweb`.`card`(
 	FOREIGN KEY	(`user_id`)	REFERENCES	`avii_desenvweb`.`user`	(`user_id`),
 	FOREIGN KEY	(`deck_id`)	REFERENCES	`avii_desenvweb`.`deck`	(`deck_id`)
 );
+
+INSERT INTO
+`avii_desenvweb`.`user`	(`username`,	`password`)
+VALUES					("felipe",		"060193"),
+						("lucas",		"081293"),
+						("matheus",		"120400");
