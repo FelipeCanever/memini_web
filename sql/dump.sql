@@ -53,3 +53,57 @@ VALUES					(1,			"Latim"),
 						(2,			"Tabela periódica"),
 
 						(3,			"C++");
+
+INSERT INTO
+`avii_desenvweb`.`card`	(`user_id`,	`deck_id`,	`front`,	`back`)
+
+VALUES					(1,			1,			"casa",			"domus"),
+						(1,			1,			"família",		"familia"),
+						(1,			1,			"homem",		"vir"),
+						(1,			1,			"mulher",		"fēmina"),
+						(1,			1,			"menino",		"puer"),
+						(1,			1,			"menina",		"puella"),
+						(1,			1,			"bebê",			"īnfāns"),
+						(1,			1,			"cachorro",		"canis"),
+						(1,			1,			"gato",			"fēlēs"),
+						(1,			1,			"passarinho",	"avis"),
+
+						(1,			2,			"casa",		"maison"),
+						(1,			2,			"família",	"famille"),
+						(1,			2,			"homem",	"homme"),
+						(1,			2,			"mulher",	"femme"),
+						(1,			2,			"menino",	"garçon"),
+						(1,			2,			"menina",	"fille"),
+						(1,			2,			"bebê",		"bébé"),
+						(1,			2,			"cachorro",	"chien"),
+						(1,			2,			"gato",		"chat"),
+
+						(1,			3,			"ser humano",	"Homo sapiens"),
+						(1,			3,			"chimpanzé",	"Pan troglodytes"),
+						(1,			3,			"cachorro",		"Canis familiaris"),
+						(1,			3,			"gato",			"Felis cattus"),
+						(1,			3,			"pardal",		"Passer domesticus"),
+						(1,			3,			"barata",		"Periplaneta americana"),
+						(1,			3,			"laranjeira",	"Citrus × sinensis"),
+						(1,			3,			"champignon",	"Agaricus bisporus"),
+
+						(2,			4,			"casa",		"house"),
+						(2,			4,			"família",	"family"),
+						(2,			4,			"homem",	"man"),
+						(2,			4,			"mulher",	"woman"),
+						(2,			4,			"menino",	"boy"),
+						(2,			4,			"menina",	"girl"),
+						(2,			4,			"bebê",		"baby"),
+
+						(2,			5,			"hidrogênio",	"H"),
+						(2,			5,			"hélio",		"He"),
+						(2,			5,			"lítio",		"Li"),
+						(2,			5,			"berílio",		"Be"),
+						(2,			5,			"boro",			"B"),
+						(2,			5,			"carbono",		"C"),
+
+						(3,			6,			"função principal",		"int main()"),
+						(3,			6,			"incluir biblioteca",	"#include <...>"),
+						(3,			6,			"biblioteca de E/S",	"iostream"),
+						(3,			6,			"saída",				"std::cout << ...;"),
+						(3,			6,			"entrada",				"std::cin >> ...;");
