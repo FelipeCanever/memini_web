@@ -1,9 +1,7 @@
 <?php
 	// Definir título da página.
 	define("TITLE", "Memini");
-	
-	require "Database.php";
-	$database = new Database("localhost", "root", "");
+	require "databaseConnection.php";
 ?>
 
 <!DOCTYPE html>
