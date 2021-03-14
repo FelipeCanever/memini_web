@@ -1,9 +1,9 @@
 <?php
-	require "utils.php";
 
-	session_start();
-	unset($_SESSION["username"]);
-	session_destroy();
+require "utils.php";
 
-	redirect("index.php");
-?>
+session_start();
+unset($_SESSION["username"]);
+session_destroy();
+
+redirect("index.php");
