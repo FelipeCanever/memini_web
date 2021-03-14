@@ -18,7 +18,7 @@
 					<a	href="#" class="nav-link dropdown-toggle" role="button"
 							id="userDropdown" data-bs-toggle="dropdown"
 							aria-expanded="false">
-						<?= $_SESSION["username"] ?>
+						<?= $_SESSION["user"]->getUsername() ?>
 					</a>
 					<!-- Sair -->
 					<ul class="dropdown-menu" aria-labelledby="userDropdown">

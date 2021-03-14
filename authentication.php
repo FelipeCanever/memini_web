@@ -1,18 +1,18 @@
 <?php
 
+require "databaseConnection.php";
 require "utils.php";
 
 session_start();
 
-define("USERNAME", "felipe");
-define("PASSWORD", "12345");
-
 $destination = "";
 
 if (isset($_POST["login"]))
+	$user = $database->selectUser($_POST["username"], $_POST["password"]);
+
 	// Ir para a página inicial se o usuário for autenticado.
-	if ($_POST["username"] == USERNAME && $_POST["password"] == PASSWORD) {
-		$_SESSION["username"] = $_POST["username"];
+	if ($user) {
+		$_SESSION["user"] = $user;
 		$destination = "index.php";
 	}
 	// Senão voltar para a página de login. 

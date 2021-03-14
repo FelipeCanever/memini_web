@@ -1,11 +1,12 @@
 <?php
 	require "utils.php";
-	session_start();
 
 	// Definir título da página.
 	define("PAGE", "");
 
 	require "templates/header.php";
+	
+	session_start();
 ?>
 
 <body>
@@ -19,7 +20,7 @@
 					<?php if (!is_logged_in()): ?>
 						Bem-vindo ao <?= TITLE ?>
 					<?php else: ?>
-						Bem-vindo, <strong><?= $_SESSION["username"] ?></strong>
+						Bem-vindo, <strong><?= $_SESSION["user"]->getUsername() ?></strong>
 					<?php endif; ?>
 				</p>
 			</div>
