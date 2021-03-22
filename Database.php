@@ -21,7 +21,7 @@ class Database {
 
 		$result = $this->connection->query(
 
-			"SELECT `username`
+			"SELECT `user_id`, `username`
 			FROM `$databaseName`.`user`
 			WHERE `username` = '$username' AND `password` = '$password';"
 		);
@@ -30,6 +30,6 @@ class Database {
 			return false;
 		
 		$user = $result->fetch_assoc();
-		return new User($user["username"]);
+		return new User($user["user_id"], $user["username"]);
 	}
 }
