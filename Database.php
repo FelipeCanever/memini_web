@@ -13,14 +13,13 @@ class Database {
 	}
 
 	public function __destruct() {
-		mysqli_close($this->connection);
+		$this->connection->close();
 	}
 
 	public function selectUser($username, $password) {
 		$databaseName = Database::$database;
 
-		$result = mysqli_query(
-			$this->connection,
+		$result = $this->connection->query(
 
 			"SELECT `username`
 			FROM `$databaseName`.`user`
@@ -30,7 +29,7 @@ class Database {
 		if ($result->num_rows <= 0)
 			return false;
 		
-		$user = mysqli_fetch_assoc($result);
+		$user = $result->fetch_assoc();
 		return new User($user["username"]);
 	}
 }
