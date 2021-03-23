@@ -2,9 +2,9 @@
 	<div class="card border-dark shadow">
 		<div class="card-body">
 			<!-- Título -->
-			<h4 class="card-title"><?= $deck["title"] ?></h4>
+			<h4 class="card-title"><?= $deck->getTitle() ?></h4>
 			<!-- Descrição -->
-			<p class="card-text lead"><?= $deck["description"] ?></p>
+			<p class="card-text lead"><?= "" ?></p>
 
 			<!-- Botões -->
 			<div class="container-fluid">
@@ -12,7 +12,7 @@
 					<div class="col-sm-12 mb-1">
 						<!-- Abrir -->
 						<form action="deck.php" method="post">
-							<input type="hidden" name="deck_id" value="<?= $deck["deck_id"] ?>">
+							<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
 							<input type="submit" name="deck" value="Abrir" class="btn btn-outline-primary btn-sm w-100 h-100">
 						</form>
 					</div>

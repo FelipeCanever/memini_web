@@ -1,5 +1,6 @@
 <?php
 
+require "models/Deck.php";
 require "models/User.php";
 
 class Database {
@@ -31,5 +32,25 @@ class Database {
 		
 		$user = $result->fetch_assoc();
 		return new User($user["user_id"], $user["username"]);
+	}
+
+	public function selectDecks($user) {
+		$databaseName = Database::$database;
+
+		$user_id = $user->getUserId();
+
+		$result = $this->connection->query(
+
+			"SELECT `title`
+			FROM `$databaseName`.`deck`
+			WHERE `user_id` = '$user_id';"
+		);
+
+		$decks = [];
+
+		foreach ($result->fetch_all(MYSQLI_ASSOC) as $deck)
+			$decks[] = new Deck($deck["deck_id"], $deck["title"]);
+		
+		return $decks;
 	}
 }

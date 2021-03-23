@@ -45,7 +45,7 @@
 		<?php if (is_logged_in()): ?>
 			<div class="row mt-4">
 				<?php
-					require "data/decks.php";
+					$decks = $database->selectDecks($_SESSION["user"]);
 
 					foreach ($decks as $deck)
 						require "templates/deck.php";
