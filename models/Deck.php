@@ -2,6 +2,7 @@
 
 class Deck {
 	private $deck_id;
+	
 	private $title;
 	private $description;
 
