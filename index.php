@@ -44,6 +44,12 @@
 		<!-- Baralhos -->
 		<?php if (is_logged_in()): ?>
 			<div class="row mt-4">
+				<form action="new_deck.php" method="post">
+					<input type="submit" name="new_deck" value="Novo baralho" class="btn btn-outline-success">
+				</form>
+			</div>
+
+			<div class="row mt-4">
 				<?php
 					$decks = $database->selectDecks($_SESSION["user"]);
 
