@@ -8,12 +8,10 @@
 	if (!is_logged_in() || !isset($_POST["deck"]))
 		redirect("index.php");
 	
-	// Carregar baralho.
-	require "data/decks.php";
-	$deck = $decks[intval($_POST["deck_id"])];
+	$deck = $database->selectDeck(intval($_POST["deck_id"]));
 
 	// Definir título da página.
-	define("PAGE", "Baralho \"{$deck['title']}\"");
+	define("PAGE", "Baralho \"{$deck->getTitle()}\"");
 
 	require "templates/header.php";
 ?>
@@ -25,7 +23,7 @@
 		<!-- Título -->
 		<div class="row">
 			<div class="col">
-				<h1 class="display-6"><?= $deck["title"] ?></h1>
+				<h1 class="display-6"><?= $deck->getTitle() ?></h1>
 			</div>
 		</div>
 
@@ -36,7 +34,7 @@
 
 				// Obter cartas que pertencem ao baralho.
 				$deck_cards = array_filter($cards, function ($card) use ($deck) {
-					return $card["deck_id"] == $deck["deck_id"];
+					return $card["deck_id"] == $deck->getTitle();
 				});
 
 				foreach ($deck_cards as $card)

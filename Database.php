@@ -37,13 +37,11 @@ class Database {
 	public function selectDecks($user) {
 		$databaseName = Database::$database;
 
-		$user_id = $user->getUserId();
-
 		$result = $this->connection->query(
 
-			"SELECT `title`, `description`
+			"SELECT `deck_id`, `title`, `description`
 			FROM `$databaseName`.`deck`
-			WHERE `user_id` = '$user_id';"
+			WHERE `user_id` = '{$user->getUserId()}';"
 		);
 
 		$decks = [];
@@ -56,5 +54,22 @@ class Database {
 			);
 		
 		return $decks;
+	}
+
+	public function selectDeck($deck_id) {
+		$databaseName = Database::$database;
+
+		$result = $this->connection->query(
+
+			"SELECT `title`, `description`
+			FROM `$databaseName`.`deck`
+			WHERE `deck_id` = '$deck_id';"
+		);
+
+		if ($result->num_rows <= 0)
+			return false;
+		
+		$deck = $result->fetch_assoc();
+		return new Deck($deck_id, $deck["title"], $deck["description"]);
 	}
 }
