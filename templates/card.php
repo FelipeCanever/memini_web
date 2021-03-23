@@ -1,16 +1,16 @@
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4 text-center">
-	<?php $cardId = "card" . $card["card_id"]; ?>
+	<?php $cardId = "card" . $card->getCardId(); ?>
 
 	<div class="card border-dark bg-light shadow" id="<?= $cardId ?>">
 		<div class="card-body">
 			<!-- Frente -->
 			<h5 class="card-title mt-5 mb-5" id="<?= $cardId . "Front" ?>">
-				<?= $card["front"] ?>
+				<?= $card->getFront() ?>
 			</h5>
 
 			<!-- Trás -->
 			<h5 class="card-title mt-5 mb-5 back" id="<?= $cardId . "Back" ?>" style="display: none;">
-				<?= $card["back"] ?>
+				<?= $card->getBack() ?>
 			</h5>
 
 			<!-- Botões -->

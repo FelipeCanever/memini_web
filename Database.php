@@ -2,6 +2,7 @@
 
 require "models/Deck.php";
 require "models/User.php";
+require "models/Card.php";
 
 class Database {
 	private static $database = "avii_desenvweb";
@@ -71,5 +72,27 @@ class Database {
 		
 		$deck = $result->fetch_assoc();
 		return new Deck($deck_id, $deck["title"], $deck["description"]);
+	}
+
+	public function selectCards($deck) {
+		$databaseName = Database::$database;
+
+		$result = $this->connection->query(
+
+			"SELECT `card_id`, `front`, `back`
+			FROM `$databaseName`.`card`
+			WHERE `deck_id` = '{$deck->getDeckId()}';"
+		);
+
+		$cards = [];
+
+		foreach ($result->fetch_all(MYSQLI_ASSOC) as $card)
+			$cards[] = new Card(
+				$card["card_id"],
+				$card["front"],
+				$card["back"]
+			);
+		
+		return $cards;
 	}
 }

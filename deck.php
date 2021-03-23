@@ -30,12 +30,7 @@
 		<!-- Cartas -->
 		<div class="row mt-4">
 			<?php
-				require "data/cards.php";
-
-				// Obter cartas que pertencem ao baralho.
-				$deck_cards = array_filter($cards, function ($card) use ($deck) {
-					return $card["deck_id"] == $deck->getTitle();
-				});
+				$deck_cards = $database->selectCards($deck);
 
 				foreach ($deck_cards as $card)
 					require "templates/card.php";
