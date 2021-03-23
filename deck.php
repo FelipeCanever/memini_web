@@ -1,4 +1,5 @@
 <?php
+	require "databaseConnection.php";
 	require "utils.php";
 
 	session_start();

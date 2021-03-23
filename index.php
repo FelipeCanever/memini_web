@@ -1,9 +1,9 @@
 <?php
+	require "databaseConnection.php";
 	require "utils.php";
 
 	// Definir título da página.
 	define("PAGE", "");
-
 	require "templates/header.php";
 	
 	session_start();

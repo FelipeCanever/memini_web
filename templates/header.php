@@ -1,7 +1,6 @@
 <?php
 	// Definir título da página.
 	define("TITLE", "Memini");
-	require "databaseConnection.php";
 ?>
 
 <!DOCTYPE html>
