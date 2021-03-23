@@ -4,7 +4,7 @@
 			<!-- Título -->
 			<h4 class="card-title"><?= $deck->getTitle() ?></h4>
 			<!-- Descrição -->
-			<p class="card-text lead"><?= "" ?></p>
+			<p class="card-text lead"><?= $deck->getDescription() ?></p>
 
 			<!-- Botões -->
 			<div class="container-fluid">

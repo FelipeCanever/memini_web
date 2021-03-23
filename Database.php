@@ -41,7 +41,7 @@ class Database {
 
 		$result = $this->connection->query(
 
-			"SELECT `title`
+			"SELECT `title`, `description`
 			FROM `$databaseName`.`deck`
 			WHERE `user_id` = '$user_id';"
 		);
@@ -49,7 +49,11 @@ class Database {
 		$decks = [];
 
 		foreach ($result->fetch_all(MYSQLI_ASSOC) as $deck)
-			$decks[] = new Deck($deck["deck_id"], $deck["title"]);
+			$decks[] = new Deck(
+				$deck["deck_id"],
+				$deck["title"],
+				$deck["description"]
+			);
 		
 		return $decks;
 	}

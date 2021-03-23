@@ -3,10 +3,12 @@
 class Deck {
 	private $deck_id;
 	private $title;
+	private $description;
 
-	public function __construct($deck_id, $title) {
+	public function __construct($deck_id, $title, $description) {
 		$this->deck_id = $deck_id;
 		$this->title = $title;
+		$this->description = $description;
 	}
 
 	public function getDeckId() {
@@ -15,5 +17,9 @@ class Deck {
 
 	public function getTitle() {
 		return $this->title;
+	}
+
+	public function getDescription() {
+		return $this->description;
 	}
 }
