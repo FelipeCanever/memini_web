@@ -24,7 +24,7 @@
 
 			<div class="col-md-4">
 				<!-- Fórmulário -->
-				<form method="POST">
+				<form method="POST" action="create_deck.php">
 					<!-- Título -->
 					<div class="mb-3">
 						<label for="title" class="form-label">Título</label>

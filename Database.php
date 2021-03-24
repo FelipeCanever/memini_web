@@ -74,6 +74,16 @@ class Database {
 		return new Deck($deck_id, $deck["title"], $deck["description"]);
 	}
 
+	public function insertDeck($user_id, $title, $description) {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"INSERT INTO
+			`$databaseName`.`deck`	(`user_id`,	`title`,	`description`)
+			VALUES									($user_id,	'$title',	'$description');"
+		);
+	}
+
 	public function selectCards($deck) {
 		$databaseName = Database::$database;
 
