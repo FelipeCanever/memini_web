@@ -74,6 +74,19 @@ class Database {
 		return new Deck($deck_id, $deck["title"], $deck["description"]);
 	}
 
+	public function deckExists($title) {
+		$databaseName = Database::$database;
+
+		$result = $this->connection->query(
+
+			"SELECT *
+			FROM `$databaseName`.`deck`
+			WHERE `title` = '$title';"
+		);
+
+		return $result->num_rows > 0;
+	}
+
 	public function insertDeck($user_id, $title, $description) {
 		$databaseName = Database::$database;
 

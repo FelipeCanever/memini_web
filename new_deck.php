@@ -28,7 +28,20 @@
 					<!-- Título -->
 					<div class="mb-3">
 						<label for="title" class="form-label">Título</label>
-						<input type="text" name="title" id="title" class="form-control" required>
+
+						<?php $problem = $_SESSION["data"]["title"]["problem"] ?? ""; ?>
+
+						<input
+							type="text" name="title" id="title" required
+							class="form-control <?= $problem ? "is-invalid" : "" ?>"
+							value="<?= $_SESSION["data"]["title"]["value"] ?? "" ?>">
+
+							<!-- Mensagem de validação -->
+							<?php if ($problem): ?>
+								<div class="invalid-feedback">
+									<?= $problem ?>
+								</div>
+							<?php endif; ?>
 					</div>
 					<!-- Descrição -->
 					<div class="mb-3">
@@ -49,3 +62,5 @@
 	<?php require "templates/script.php"; ?>
 </body>
 </html>
+
+<?php unset($_SESSION["data"]); ?>
