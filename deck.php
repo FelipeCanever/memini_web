@@ -32,9 +32,9 @@
 		<!-- Cartas -->
 		<div class="row mt-4">
 			<?php
-				$deck_cards = $database->selectCards($deck);
+				$cards = $database->selectCards($deck);
 
-				foreach ($deck_cards as $card)
+				foreach ($cards as $card)
 					require "templates/card.php";
 			?>
 		</div>

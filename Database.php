@@ -114,11 +114,10 @@ class Database {
 		);
 	}
 
-	public function selectCards($deck) {
+	public function selectCards(Deck $deck): array {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
-
 			"SELECT `card_id`, `front`, `back`
 			FROM `$databaseName`.`card`
 			WHERE `deck_id` = '{$deck->getDeckId()}';"
@@ -128,9 +127,9 @@ class Database {
 
 		foreach ($result->fetch_all(MYSQLI_ASSOC) as $card)
 			$cards[] = new Card(
-				$card["card_id"],
 				$card["front"],
-				$card["back"]
+				$card["back"],
+				$card["card_id"]
 			);
 		
 		return $cards;
