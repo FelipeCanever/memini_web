@@ -35,11 +35,10 @@ class Database {
 		return new User($user["user_id"], $user["username"]);
 	}
 
-	public function selectDecks($user) {
+	public function selectDecks(User $user): array {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
-
 			"SELECT `deck_id`, `title`, `description`
 			FROM `$databaseName`.`deck`
 			WHERE `user_id` = '{$user->getUserId()}';"
