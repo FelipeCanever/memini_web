@@ -2,13 +2,18 @@
 	require "databaseConnection.php";
 	require "utils.php";
 
-	$deck = $database->selectDeck($_POST["deck_id"]);
+	session_start();
+
+	$deck_id =
+		isset($_POST["deck_id"])
+		? $_POST["deck_id"]
+		: $_SESSION["data"]["deck_id"];
+
+	$deck = $database->selectDeck($deck_id);
 
 	// Definir título da página.
 	define("PAGE", "Editar baralho \"{$deck->getTitle()}\"");
 	require "templates/header.php";
-	
-	session_start();
 ?>
 
 <body>
@@ -27,6 +32,8 @@
 			<div class="col-md-4">
 				<!-- Fórmulário -->
 				<form method="POST" action="update_deck.php">
+					<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
+
 					<!-- Título -->
 					<div class="mb-3">
 						<label for="title" class="form-label">Título</label>

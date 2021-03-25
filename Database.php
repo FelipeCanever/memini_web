@@ -74,14 +74,16 @@ class Database {
 		return new Deck($deck_id, $deck["title"], $deck["description"]);
 	}
 
-	public function deckExists($title) {
+	public function deckExists($title, $except_deck_id = null) {
 		$databaseName = Database::$database;
+
+		$except = $except_deck_id ? "AND `deck_id` != $except_deck_id" : "";
 
 		$result = $this->connection->query(
 
 			"SELECT *
 			FROM `$databaseName`.`deck`
-			WHERE `title` = '$title';"
+			WHERE `title` = '$title' $except;"
 		);
 
 		return $result->num_rows > 0;
@@ -94,6 +96,16 @@ class Database {
 			"INSERT INTO
 			`$databaseName`.`deck`	(`user_id`,	`title`,	`description`)
 			VALUES									($user_id,	'$title',	'$description');"
+		);
+	}
+
+	public function updateDeck($deck_id, $title, $description) {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"UPDATE `$databaseName`.`deck`
+			SET `title` = '$title', `description` = '$description'
+			WHERE `deck_id` = $deck_id;"
 		);
 	}
 
