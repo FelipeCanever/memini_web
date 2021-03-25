@@ -5,20 +5,25 @@ require "utils.php";
 
 session_start();
 
-$destination = "";
+if (!isset($_POST["login"])) {
+	redirect("index.php");
+	exit();
+}
 
-if (isset($_POST["login"]))
-	$user = $database->selectUser($_POST["username"], $_POST["password"]);
+$loginUser = $_SESSION["login_user"] = new User(
+	trim($_POST["username"]),
+	$_POST["password"]
+);
 
-	// Ir para a página inicial se o usuário for autenticado.
-	if ($user) {
-		$_SESSION["user"] = $user;
-		$destination = "index.php";
-	}
-	// Senão voltar para a página de login. 
-	else {
-		$_SESSION["invalid"] = True;
-		$destination = "login.php";
-	}
+$_SESSION["problems"] = [];
 
-redirect($destination);
+$savedUser = $database->selectUser($loginUser);
+
+if (!$savedUser) {
+	$_SESSION["problems"]["invalid_login"] = "Nome de usuário ou senha inválido.";
+	redirect("login.php");
+	exit();
+}
+
+$_SESSION["user"] = $savedUser;
+redirect("index.php");

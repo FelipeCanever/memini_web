@@ -8,7 +8,7 @@ class Database {
 	private static string $database = "avii_desenvweb";
 	private mysqli $connection;
 
-	public function __construct($host, $user, $password) {
+	public function __construct(string $host, string $user, string $password) {
 		$this->connection = new mysqli(
 			$host, $user, $password, Database::$database
 		);
@@ -18,21 +18,20 @@ class Database {
 		$this->connection->close();
 	}
 
-	public function selectUser($username, $password) {
+	public function selectUser(User $user) {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
-
 			"SELECT `user_id`, `username`
 			FROM `$databaseName`.`user`
-			WHERE `username` = '$username' AND `password` = '$password';"
+			WHERE `username` = '{$user->getUsername()}' AND `password` = '{$user->getPassword()}';"
 		);
 
 		if ($result->num_rows <= 0)
 			return false;
 		
 		$user = $result->fetch_assoc();
-		return new User($user["user_id"], $user["username"]);
+		return new User($user["username"], "", $user["user_id"]);
 	}
 
 	public function selectDecks(User $user): array {

@@ -57,7 +57,7 @@ VALUES									(1,					"Latim",							"Palavras em latim."),
 												(1,					"Francês",						"Palavras em francês."),
 												(1,					"Nomes científicos",	""),
 												-- lucas
-												(2,					"Inglês",							"Palavras em francês."),
+												(2,					"Inglês",							"Palavras em inglês."),
 												(2,					"Tabela periódica",		"Elementos da tabela periódica."),
 												-- matheus
 												(3,					"C++",								"");
