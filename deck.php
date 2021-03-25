@@ -3,10 +3,12 @@
 	require "utils.php";
 
 	session_start();
+	require "check_logged_in.php";
 
-	// Sair se não estiver logado ou se não tiver baralho.
-	if (!is_logged_in() || !isset($_POST["deck"]))
-		redirect("index.php");
+	if (!isset($_POST["deck_id"])) {
+		redirect("index.html");
+		exit();
+	}
 	
 	$deck = $database->selectDeck(intval($_POST["deck_id"]));
 

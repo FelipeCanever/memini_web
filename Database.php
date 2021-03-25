@@ -56,21 +56,25 @@ class Database {
 		return $decks;
 	}
 
-	public function selectDeck($deck_id) {
+	public function selectDeck(int $deck_id): Deck {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
-
 			"SELECT `title`, `description`
 			FROM `$databaseName`.`deck`
 			WHERE `deck_id` = '$deck_id';"
 		);
 
 		if ($result->num_rows <= 0)
-			return false;
+			return null;
 		
 		$deck = $result->fetch_assoc();
-		return new Deck($deck_id, $deck["title"], $deck["description"]);
+
+		return new Deck(
+			$deck["title"],
+			$deck["description"],
+			$deck_id
+		);
 	}
 
 	public function deckExists(Deck $deck): bool {
