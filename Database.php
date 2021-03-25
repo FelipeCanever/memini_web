@@ -104,13 +104,13 @@ class Database {
 		);
 	}
 
-	public function updateDeck($deck_id, $title, $description) {
+	public function updateDeck(Deck $deck): void {
 		$databaseName = Database::$database;
 
 		$this->connection->query(
 			"UPDATE `$databaseName`.`deck`
-			SET `title` = '$title', `description` = '$description'
-			WHERE `deck_id` = $deck_id;"
+			SET `title` = '{$deck->getTitle()}', `description` = '{$deck->getDescription()}'
+			WHERE `deck_id` = {$deck->getDeckId()};"
 		);
 	}
 

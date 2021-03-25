@@ -39,12 +39,12 @@
 							class="form-control <?= $problem ? "is-invalid" : "" ?>"
 							value="<?= $deck->getTitle() ?>">
 
-							<!-- Mensagem de validação -->
-							<?php if ($problem): ?>
-								<div class="invalid-feedback">
-									<?= $problem ?>
-								</div>
-							<?php endif; ?>
+						<!-- Mensagem de validação -->
+						<?php if ($problem): ?>
+							<div class="invalid-feedback">
+								<?= $problem ?>
+							</div>
+						<?php endif; ?>
 					</div>
 					<!-- Descrição -->
 					<div class="mb-3">

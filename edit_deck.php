@@ -3,16 +3,12 @@
 	require "utils.php";
 
 	session_start();
+	require "check_logged_in.php";
 
-	$deck_id =
-		isset($_POST["deck_id"])
-		? $_POST["deck_id"]
-		: $_SESSION["data"]["deck_id"];
-
-	$deck = $database->selectDeck($deck_id);
+	$deck = $_SESSION["deck"] ?? $database->selectDeck(intval($_POST["deck_id"]));
 
 	// Definir título da página.
-	define("PAGE", "Editar baralho \"{$deck->getTitle()}\"");
+	define("PAGE", "Editar baralho");
 	require "templates/header.php";
 ?>
 
@@ -22,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="display-6">Editando "<?= $deck->getTitle() ?>"</p>
+				<p class="display-6">Editando baralho</p>
 			</div>
 		</div>
 
@@ -38,24 +34,24 @@
 					<div class="mb-3">
 						<label for="title" class="form-label">Título</label>
 
-						<?php $problem = $_SESSION["data"]["title"]["problem"] ?? ""; ?>
+						<?php $problem = $_SESSION["problems"]["title"] ?? false ?>
 
 						<input
 							type="text" name="title" id="title" required
 							class="form-control <?= $problem ? "is-invalid" : "" ?>"
-							value="<?= $_SESSION["data"]["title"]["value"] ?? $deck->getTitle() ?>">
+							value="<?= $deck->getTitle() ?>">
 
-							<!-- Mensagem de validação -->
-							<?php if ($problem): ?>
-								<div class="invalid-feedback">
-									<?= $problem ?>
-								</div>
-							<?php endif; ?>
+						<!-- Mensagem de validação -->
+						<?php if ($problem): ?>
+							<div class="invalid-feedback">
+								<?= $problem ?>
+							</div>
+						<?php endif; ?>
 					</div>
 					<!-- Descrição -->
 					<div class="mb-3">
 						<label for="description" class="form-label">Descrição</label>
-						<textarea name="description" id="description" class="form-control"><?= $_SESSION["data"]["description"]["value"] ?? $deck->getDescription() ?></textarea>
+						<textarea name="description" id="description" class="form-control"><?= $deck->getDescription() ?></textarea>
 					</div>
 
 					<button type="submit" name="update_deck" class="btn btn-outline-primary mb-3">
@@ -72,4 +68,7 @@
 </body>
 </html>
 
-<?php unset($_SESSION["data"]); ?>
+<?php
+	unset($_SESSION["deck"]);
+	$_SESSION["problems"] = [];
+?>
