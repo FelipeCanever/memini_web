@@ -5,11 +5,11 @@ require "models/User.php";
 require "models/Card.php";
 
 class Database {
-	private static $database = "avii_desenvweb";
-	private $connection;
+	private static string $database = "avii_desenvweb";
+	private mysqli $connection;
 
 	public function __construct($host, $user, $password) {
-		$this->connection = mysqli_connect(
+		$this->connection = new mysqli(
 			$host, $user, $password, Database::$database
 		);
 	}
@@ -49,9 +49,9 @@ class Database {
 
 		foreach ($result->fetch_all(MYSQLI_ASSOC) as $deck)
 			$decks[] = new Deck(
-				$deck["deck_id"],
 				$deck["title"],
-				$deck["description"]
+				$deck["description"],
+				$deck["deck_id"]
 			);
 		
 		return $decks;
@@ -74,28 +74,30 @@ class Database {
 		return new Deck($deck_id, $deck["title"], $deck["description"]);
 	}
 
-	public function deckExists($title, $except_deck_id = null) {
+	public function deckExists(Deck $deck): bool {
 		$databaseName = Database::$database;
 
-		$except = $except_deck_id ? "AND `deck_id` != $except_deck_id" : "";
+		$except =
+			$deck->getDeckId() > 0
+			? "AND `deck_id` != {$deck->getDeckId()}"
+			: "";
 
 		$result = $this->connection->query(
-
 			"SELECT *
 			FROM `$databaseName`.`deck`
-			WHERE `title` = '$title' $except;"
+			WHERE `title` = '{$deck->getTitle()}' $except;"
 		);
 
 		return $result->num_rows > 0;
 	}
 
-	public function insertDeck($user_id, $title, $description) {
+	public function insertDeck(User $user, Deck $deck): void {
 		$databaseName = Database::$database;
 
 		$this->connection->query(
 			"INSERT INTO
-			`$databaseName`.`deck`	(`user_id`,	`title`,	`description`)
-			VALUES									($user_id,	'$title',	'$description');"
+			`$databaseName`.`deck`	(`user_id`,							`title`,								`description`)
+			VALUES									({$user->getUserId()},	'{$deck->getTitle()}',	'{$deck->getDescription()}');"
 		);
 	}
 

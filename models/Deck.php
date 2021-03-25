@@ -1,26 +1,26 @@
 <?php
 
 class Deck {
-	private $deck_id;
+	private int $deck_id;
 	
-	private $title;
-	private $description;
+	private string $title;
+	private string $description;
 
-	public function __construct($deck_id, $title, $description) {
+	public function __construct(string $title, string $description, int $deck_id = 0) {
 		$this->deck_id = $deck_id;
 		$this->title = $title;
 		$this->description = $description;
 	}
 
-	public function getDeckId() {
+	public function getDeckId(): int {
 		return $this->deck_id;
 	}
 
-	public function getTitle() {
+	public function getTitle(): string {
 		return $this->title;
 	}
 
-	public function getDescription() {
+	public function getDescription(): string {
 		return $this->description;
 	}
 }
