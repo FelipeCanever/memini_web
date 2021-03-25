@@ -24,9 +24,10 @@
 					</div>
 
 					<div class="col-sm-12 mb-1">
-						<a href="#" class="btn btn-outline-primary btn-sm w-100 h-100">
-							Editar
-						</a>
+						<form action="edit_deck.php" method="post">
+							<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
+							<input type="submit" name="deck" value="Editar" class="btn btn-outline-primary btn-sm w-100 h-100">
+						</form>
 					</div>
 
 					<div class="col-sm-12 mb-1">
