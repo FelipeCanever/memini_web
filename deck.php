@@ -29,6 +29,13 @@
 			</div>
 		</div>
 
+		<!-- Nova carta -->
+		<div class="row mt-4">
+			<form action="new_card.php" method="post">
+				<input type="submit" name="new_card" value="Nova carta" class="btn btn-outline-success">
+			</form>
+		</div>
+
 		<!-- Cartas -->
 		<div class="row mt-4">
 			<?php
