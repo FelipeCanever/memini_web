@@ -17,7 +17,7 @@ $deck = $_SESSION["deck"] = new Deck(
 
 $_SESSION["problems"] = [];
 
-if ($database->deckExists($deck)) {
+if ($database->deckExists($_SESSION["user"], $deck)) {
 	$_SESSION["problems"]["title"] = "Já existe um baralho com esse nome.";
 	redirect("new_deck.php");
 	exit();

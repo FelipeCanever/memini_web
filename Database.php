@@ -76,7 +76,7 @@ class Database {
 		);
 	}
 
-	public function deckExists(Deck $deck): bool {
+	public function deckExists(User $user, Deck $deck): bool {
 		$databaseName = Database::$database;
 
 		$except =
@@ -87,7 +87,7 @@ class Database {
 		$result = $this->connection->query(
 			"SELECT *
 			FROM `$databaseName`.`deck`
-			WHERE `title` = '{$deck->getTitle()}' $except;"
+			WHERE `title` = '{$deck->getTitle()}' AND `user_id` = {$user->getUserId()} $except;"
 		);
 
 		return $result->num_rows > 0;
