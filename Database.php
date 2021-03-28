@@ -55,13 +55,13 @@ class Database {
 		return $decks;
 	}
 
-	public function selectDeck(int $deck_id): Deck {
+	public function selectDeck(User $user, int $deck_id) {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
 			"SELECT `title`, `description`
 			FROM `$databaseName`.`deck`
-			WHERE `deck_id` = '$deck_id';"
+			WHERE `deck_id` = '$deck_id' and `user_id`= {$user->getUserId()};"
 		);
 
 		if ($result->num_rows <= 0)

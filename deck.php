@@ -10,7 +10,7 @@
 		exit();
 	}
 	
-	$deck = $database->selectDeck(intval($_GET["deck_id"]));
+	$deck = $database->selectDeck($_SESSION["user"], intval($_GET["deck_id"]));
 
 	// Definir título da página.
 	define("PAGE", "Baralho \"{$deck->getTitle()}\"");
