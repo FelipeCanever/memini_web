@@ -5,12 +5,12 @@
 	session_start();
 	require "check_logged_in.php";
 
-	if (!isset($_POST["deck_id"])) {
+	if (!isset($_GET["deck_id"])) {
 		redirect("index.html");
 		exit();
 	}
 	
-	$deck = $database->selectDeck(intval($_POST["deck_id"]));
+	$deck = $database->selectDeck(intval($_GET["deck_id"]));
 
 	// Definir título da página.
 	define("PAGE", "Baralho \"{$deck->getTitle()}\"");
