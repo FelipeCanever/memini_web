@@ -128,7 +128,8 @@ class Database {
 			$cards[] = new Card(
 				$card["front"],
 				$card["back"],
-				$card["card_id"]
+				0,
+				intval($card["card_id"])
 			);
 		
 		return $cards;
