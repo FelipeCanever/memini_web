@@ -5,7 +5,18 @@
 	session_start();
 	require "check_logged_in.php";
 
-	$deck = $_SESSION["deck"] ?? $database->selectDeck(intval($_POST["deck_id"]));
+	if (!isset($_GET["deck_id"])) {
+		redirect("index.html");
+		exit();
+	}
+
+	$deck = $database->selectDeck($_SESSION["user"], intval($_GET["deck_id"]));
+
+	if (isset($_GET["title"]))
+		$deck->setTitle($_GET["title"]);
+	
+	if (isset($_GET["description"]))
+		$deck->setDescription($_GET["description"]);
 
 	// Definir título da página.
 	define("PAGE", "Editar baralho");
@@ -27,7 +38,7 @@
 
 			<div class="col-md-4">
 				<!-- Fórmulário -->
-				<form method="POST" action="update_deck.php">
+				<form method="get" action="update_deck.php">
 					<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
 
 					<!-- Título -->
@@ -69,6 +80,5 @@
 </html>
 
 <?php
-	unset($_SESSION["deck"]);
 	$_SESSION["problems"] = [];
 ?>

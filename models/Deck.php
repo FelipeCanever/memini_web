@@ -20,7 +20,15 @@ class Deck {
 		return $this->title;
 	}
 
+	public function setTitle($title): void {
+		$this->title = $title;
+	}
+
 	public function getDescription(): string {
 		return $this->description;
+	}
+
+	public function setDescription($description): void {
+		$this->$description = $description;
 	}
 }

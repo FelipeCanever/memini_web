@@ -24,9 +24,9 @@
 					</div>
 
 					<div class="col-sm-12 mb-1">
-						<form action="edit_deck.php" method="post">
+						<form action="edit_deck.php" method="get">
 							<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
-							<input type="submit" name="deck" value="Editar" class="btn btn-outline-primary btn-sm w-100 h-100">
+							<button type="submit" class="btn btn-outline-primary btn-sm w-100 h-100">Editar</button>
 						</form>
 					</div>
 
