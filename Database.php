@@ -139,7 +139,7 @@ class Database {
 		$databaseName = Database::$database;
 
 		$result = $this->connection->query(
-			"SELECT `deck_id`, `front`, `back`
+			"SELECT `card_id`, `deck_id`, `front`, `back`
 			FROM `$databaseName`.`card`
 			WHERE `card_id` = $card_id and `user_id`= {$user->getUserId()};"
 		);
@@ -152,7 +152,8 @@ class Database {
 		return new Card(
 			$card["front"],
 			$card["back"],
-			intval($card["deck_id"])
+			intval($card["deck_id"]),
+			intval($card["card_id"])
 		);
 	}
 
@@ -180,6 +181,16 @@ class Database {
 			"INSERT INTO
 			`$databaseName`.`card`	(`user_id`,							`deck_id`,						`front`,								`back`)
 			VALUES									({$user->getUserId()},	{$card->getDeckId()},	'{$card->getFront()}',	'{$card->getBack()}');"
+		);
+	}
+
+	public function updateCard(Card $card): void {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"UPDATE `$databaseName`.`card`
+			SET `front` = '{$card->getFront()}', `back` = '{$card->getBack()}'
+			WHERE `card_id` = {$card->getCardId()};"
 		);
 	}
 }

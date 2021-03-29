@@ -40,6 +40,7 @@
 				<!-- Fórmulário -->
 				<form method="get" action="update_card.php">
 					<input type="hidden" name="card_id" value="<?= $card->getCardId() ?>">
+					<input type="hidden" name="deck_id" value="<?= $card->getDeckId() ?>">
 
 					<!-- Frente -->
 					<div class="mb-3">
