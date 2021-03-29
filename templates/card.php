@@ -16,13 +16,21 @@
 			<!-- Botões -->
 			<div class="container-fluid">
 				<div class="row">
+					<!-- Virar -->
 					<div class="col-sm-12 mb-1">
 						<a	href="#" class="btn btn-outline-primary btn-sm w-100 h-100"
 							onclick="flipCard('<?= $cardId ?>')">
 							Virar
 						</a>
 					</div>
-
+					<!-- Editar -->
+					<div class="col-sm-12 mb-1">
+						<form action="edit_card.php" method="get">
+							<input type="hidden" name="card_id" value="<?= $card->getCardId() ?>">
+							<button type="submit" class="btn btn-outline-primary btn-sm w-100 h-100">Editar</button>
+						</form>
+					</div>
+					<!-- Excluir -->
 					<div class="col-sm-12 mb-1">
 						<a href="#" class="btn btn-outline-danger btn-sm w-100 h-100 disabled">
 							Excluir
