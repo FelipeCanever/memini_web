@@ -5,7 +5,10 @@
 	session_start();
 	require "check_logged_in.php";
 
-	$deck = $_SESSION["deck"] ?? new Deck("", "");
+	$deck = new Deck(
+		$_GET["title"] 				?? "",
+		$_GET["description"] 	?? ""
+	);
 
 	// Definir título da página.
 	define("PAGE", "Novo baralho");
@@ -27,7 +30,7 @@
 
 			<div class="col-md-4">
 				<!-- Fórmulário -->
-				<form method="POST" action="insert_deck.php">
+				<form method="get" action="insert_deck.php">
 					<!-- Título -->
 					<div class="mb-3">
 						<label for="title" class="form-label">Título</label>
@@ -67,6 +70,5 @@
 </html>
 
 <?php
-	unset($_SESSION["deck"]);
 	$_SESSION["problems"] = [];
 ?>

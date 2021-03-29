@@ -5,21 +5,28 @@ require "utils.php";
 
 session_start();
 
-if (!isset($_POST["insert_deck"])) {
+if (!isset($_GET["insert_deck"])) {
 	redirect("index.php");
 	exit();
 }
 
-$deck = $_SESSION["deck"] = new Deck(
-	trim($_POST["title"]),
-	trim($_POST["description"])
-);
-
 $_SESSION["problems"] = [];
+
+$deck = new Deck(
+	$_GET["title"],
+	$_GET["description"]
+);
 
 if ($database->deckExists($_SESSION["user"], $deck)) {
 	$_SESSION["problems"]["title"] = "Já existe um baralho com esse nome.";
-	redirect("new_deck.php");
+	
+	$parametros_get = [
+		"title" 			=> $_GET["title"],
+		"description" => $_GET["description"]
+	];
+
+	redirect("new_deck.php?" . http_build_query($parametros_get));
+
 	exit();
 }
 
