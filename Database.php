@@ -135,6 +135,27 @@ class Database {
 		return $cards;
 	}
 
+	public function selectCard(User $user, int $card_id) {
+		$databaseName = Database::$database;
+
+		$result = $this->connection->query(
+			"SELECT `deck_id`, `front`, `back`
+			FROM `$databaseName`.`card`
+			WHERE `card_id` = $card_id and `user_id`= {$user->getUserId()};"
+		);
+
+		if ($result->num_rows <= 0)
+			return null;
+		
+		$card = $result->fetch_assoc();
+
+		return new Card(
+			$card["front"],
+			$card["back"],
+			intval($card["deck_id"])
+		);
+	}
+
 	public function cardExists(Card $card): bool {
 		$databaseName = Database::$database;
 

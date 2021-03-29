@@ -26,7 +26,15 @@ class Card {
 		return $this->front;
 	}
 
+	public function setFront($front): void {
+		$this->front = $front;
+	}
+
 	public function getBack(): string {
 		return $this->back;
+	}
+
+	public function setBack($back): void {
+		$this->back = $back;
 	}
 }
