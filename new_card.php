@@ -10,7 +10,12 @@
 		exit();
 	}
 
-	$card = new Card("", "", intval($_GET["deck_id"]));
+	$card = new Card(
+		$_GET["front"]	?? "",
+		$_GET["back"]		?? "",
+		intval($_GET["deck_id"])
+	);
+
 	$deck = $database->selectDeck($_SESSION["user"], $card->getDeckId());
 
 	// Definir título da página.
