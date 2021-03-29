@@ -133,4 +133,31 @@ class Database {
 		
 		return $cards;
 	}
+
+	public function cardExists(Card $card): bool {
+		$databaseName = Database::$database;
+
+		$except =
+			$card->getCardId() > 0
+			? "AND `card_id` != {$card->getCardId()}"
+			: "";
+
+		$result = $this->connection->query(
+			"SELECT *
+			FROM `$databaseName`.`card`
+			WHERE `front` = '{$card->getFront()}' AND `deck_id` = {$card->getDeckId()} $except;"
+		);
+
+		return $result->num_rows > 0;
+	}
+
+	public function insertCard(User $user, Card $card): void {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"INSERT INTO
+			`$databaseName`.`card`	(`user_id`,							`deck_id`,						`front`,								`back`)
+			VALUES									({$user->getUserId()},	{$card->getDeckId()},	'{$card->getFront()}',	'{$card->getBack()}');"
+		);
+	}
 }

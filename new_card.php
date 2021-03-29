@@ -5,7 +5,13 @@
 	session_start();
 	require "check_logged_in.php";
 
-	$card = $_SESSION["card"] ?? new Card("", "");
+	if (!isset($_GET["deck_id"])) {
+		redirect("index.php");
+		exit();
+	}
+
+	$card = new Card("", "", intval($_GET["deck_id"]));
+	$deck = $database->selectDeck($_SESSION["user"], $card->getDeckId());
 
 	// Definir título da página.
 	define("PAGE", "Nova carta");
@@ -18,7 +24,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="display-6">Nova carta</p>
+				<p class="display-6">Nova carta para o baralho "<?= $deck->getTitle() ?>"</p>
 			</div>
 		</div>
 
@@ -27,7 +33,9 @@
 
 			<div class="col-md-4">
 				<!-- Fórmulário -->
-				<form method="POST" action="insert_card.php">
+				<form method="get" action="insert_card.php">
+					<input type="hidden" name="deck_id" value="<?= $card->getDeckId() ?>">
+
 					<!-- Frente -->
 					<div class="mb-3">
 						<label for="front" class="form-label">Frente</label>
@@ -72,6 +80,5 @@
 </html>
 
 <?php
-	unset($_SESSION["card"]);
 	$_SESSION["problems"] = [];
 ?>

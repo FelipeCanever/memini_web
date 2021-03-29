@@ -31,8 +31,9 @@
 
 		<!-- Nova carta -->
 		<div class="row mt-4">
-			<form action="new_card.php" method="post">
-				<input type="submit" name="new_card" value="Nova carta" class="btn btn-outline-success">
+			<form action="new_card.php" method="get">
+				<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
+				<button type="submit" class="btn btn-outline-success">Nova carta</button>
 			</form>
 		</div>
 
