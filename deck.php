@@ -48,6 +48,31 @@
 		</div>
 	</div>
 
+	<!-- Confirmação de exclusão da carta -->
+	<div class="modal fade" id="deleteCardPrompt" tabindex="-1" aria-labelledby="deleteCardPromptLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteCardPromptLabel">Excluir carta</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Tem certeza que deseja excluir esta carta?
+				</div>
+				<div class="modal-footer">
+					<!-- Excluir -->
+					<form action="delete_card.php", method="get">
+						<input type="hidden" name="cardId" value="<?= $deck->getDeckId() ?>">
+						<input type="hidden" id="cardIdInput" name="cardId" value="">
+						<button type="submit" class="btn btn-danger">Excluir</button>
+					</form>
+					<!-- Cancelar -->
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<?php require "templates/script.php"; ?>
 	<script src="scripts/deck.js"></script>
 </body>

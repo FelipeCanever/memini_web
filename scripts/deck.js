@@ -1,7 +1,5 @@
 function flipCard(cardId) {
 	const card = $(`#${cardId}`);
-	console.log("Bonjour");
-
 	card.toggleClass("bg-light cardBack");
 	toggleFrontBack(card);
 }
@@ -14,4 +12,9 @@ function toggleFrontBack(card) {
 	
 	for (const element of [front, back])
 		element.toggle();
+}
+
+function deleteCard(cardId) {
+	const card = $(`#${cardId}`);
+	console.log("Delete card!");
 }
