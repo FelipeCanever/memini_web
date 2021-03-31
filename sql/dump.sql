@@ -39,7 +39,7 @@ CREATE TABLE `avii_desenvweb`.`card`(
 	PRIMARY KEY	(`card_id`),
 
 	FOREIGN KEY	(`user_id`)	REFERENCES	`avii_desenvweb`.`user`	(`user_id`),
-	FOREIGN KEY	(`deck_id`)	REFERENCES	`avii_desenvweb`.`deck`	(`deck_id`)
+	FOREIGN KEY	(`deck_id`)	REFERENCES	`avii_desenvweb`.`deck`	(`deck_id`) ON DELETE CASCADE
 );
 
 -- Usuários
