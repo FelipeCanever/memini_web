@@ -113,6 +113,15 @@ class Database {
 		);
 	}
 
+	public function deleteDeck(int $deck_id): void {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"DELETE FROM `$databaseName`.`deck`
+			WHERE `deck_id` = {$deck_id};"
+		);
+	}
+
 	public function selectCards(Deck $deck): array {
 		$databaseName = Database::$database;
 
