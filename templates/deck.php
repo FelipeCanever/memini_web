@@ -31,7 +31,10 @@
 					</div>
 
 					<div class="col-sm-12 mb-1">
-						<a href="#" class="btn btn-outline-danger btn-sm w-100 h-100 disabled">
+						<a
+							href="#" class="btn btn-outline-danger btn-sm w-100 h-100"
+							data-bs-toggle="modal" data-bs-target="#deleteDeckPrompt"
+							onclick="setDeckIdForDeletion('<?= $deck->getDeckId() ?>')">
 							Excluir
 						</a>
 					</div>

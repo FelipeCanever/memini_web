@@ -61,6 +61,31 @@
 		<?php endif; ?>
 	</div>
 
+	<!-- Confirmação de exclusão da baralho -->
+	<div class="modal fade" id="deleteDeckPrompt" tabindex="-1" aria-labelledby="deleteDeckPromptLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteDeckPromptLabel">Excluir baralho</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					Tem certeza que deseja excluir este baralho?
+				</div>
+				<div class="modal-footer">
+					<!-- Excluir -->
+					<form action="delete_deck.php", method="post">
+						<input type="hidden" id="deckIdInput" name="deck_id" value="">
+						<button type="submit" name="delete_deck" class="btn btn-danger">Excluir</button>
+					</form>
+					<!-- Cancelar -->
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<?php require "templates/script.php"; ?>
+	<script src="scripts/decks.js"></script>
 </body>
 </html>
