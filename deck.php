@@ -62,9 +62,9 @@
 				<div class="modal-footer">
 					<!-- Excluir -->
 					<form action="delete_card.php", method="post">
-						<input type="hidden" name="deckId" value="<?= $deck->getDeckId() ?>">
-						<input type="hidden" id="cardIdInput" name="cardId" value="">
-						<button type="submit" class="btn btn-danger">Excluir</button>
+						<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
+						<input type="hidden" id="cardIdInput" name="card_id" value="">
+						<button type="submit" name="delete_card" class="btn btn-danger">Excluir</button>
 					</form>
 					<!-- Cancelar -->
 					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>

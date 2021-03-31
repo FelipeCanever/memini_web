@@ -193,4 +193,13 @@ class Database {
 			WHERE `card_id` = {$card->getCardId()};"
 		);
 	}
+
+	public function deleteCard(int $card_id): void {
+		$databaseName = Database::$database;
+
+		$this->connection->query(
+			"DELETE FROM `$databaseName`.`card`
+			WHERE `card_id` = {$card_id};"
+		);
+	}
 }
