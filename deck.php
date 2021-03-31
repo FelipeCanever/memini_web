@@ -61,8 +61,8 @@
 				</div>
 				<div class="modal-footer">
 					<!-- Excluir -->
-					<form action="delete_card.php", method="get">
-						<input type="hidden" name="cardId" value="<?= $deck->getDeckId() ?>">
+					<form action="delete_card.php", method="post">
+						<input type="hidden" name="deckId" value="<?= $deck->getDeckId() ?>">
 						<input type="hidden" id="cardIdInput" name="cardId" value="">
 						<button type="submit" class="btn btn-danger">Excluir</button>
 					</form>

@@ -35,7 +35,7 @@
 						<a
 							href="#" class="btn btn-outline-danger btn-sm w-100 h-100"
 							data-bs-toggle="modal" data-bs-target="#deleteCardPrompt"
-							onclick="deleteCard('<?= $cardId ?>')">
+							onclick="setCardIdForDeletion('<?= $card->getCardId() ?>')">
 							Excluir
 						</a>
 					</div>

@@ -14,7 +14,6 @@ function toggleFrontBack(card) {
 		element.toggle();
 }
 
-function deleteCard(cardId) {
-	const card = $(`#${cardId}`);
-	console.log("Delete card!");
+function setCardIdForDeletion(cardId) {
+	$(`#cardIdInput`).val(cardId);
 }
