@@ -49,6 +49,6 @@
 	</div>
 
 	<?php require "templates/script.php"; ?>
-	<script src="deck.js"></script>
+	<script src="scripts/deck.js"></script>
 </body>
 </html>

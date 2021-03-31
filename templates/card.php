@@ -9,7 +9,7 @@
 			</h5>
 
 			<!-- Trás -->
-			<h5 class="card-title mt-5 mb-5 back" id="<?= $cardId . "Back" ?>" style="display: none;">
+			<h5 class="card-title mt-5 mb-5 cardBackText" id="<?= $cardId . "Back" ?>" style="display: none;">
 				<?= $card->getBack() ?>
 			</h5>
 
