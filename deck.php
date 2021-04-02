@@ -29,12 +29,18 @@
 			</div>
 		</div>
 
-		<!-- Nova carta -->
 		<div class="row mt-4">
-			<form action="new_card.php" method="get">
-				<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
-				<button type="submit" class="btn btn-outline-success">Nova carta</button>
-			</form>
+			<div class="col-12 d-flex">
+				<!-- Ver todos os baralhos -->
+				<form action="index.php" method="post" class="me-3">
+					<button type="submit" class="btn btn-outline-primary">Ver todos os baralhos</button>
+				</form>
+				<!-- Nova carta -->
+				<form action="new_card.php" method="get" class="me-3">
+					<input type="hidden" name="deck_id" value="<?= $deck->getDeckId() ?>">
+					<button type="submit" class="btn btn-outline-success">Nova carta</button>
+				</form>
+			</div>
 		</div>
 
 		<!-- Cartas -->
