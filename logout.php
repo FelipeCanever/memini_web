@@ -6,4 +6,4 @@ session_start();
 unset($_SESSION["user"]);
 session_destroy();
 
-redirect("index.php");
+redirect("login.php");
