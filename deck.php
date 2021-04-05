@@ -5,6 +5,7 @@
 	session_start();
 	require "check_logged_in.php";
 
+	// Se não houver a informação do id. do baralho, sair.
 	if (!isset($_GET["deck_id"])) {
 		redirect("index.html");
 		exit();
@@ -20,7 +21,6 @@
 
 <body>
 	<?php require "templates/navbar.php"; ?>
-
 	<div class="container">
 		<!-- Título -->
 		<div class="row">
@@ -28,7 +28,6 @@
 				<h1 class="display-6"><?= $deck->getTitle() ?></h1>
 			</div>
 		</div>
-
 		<div class="row mt-4">
 			<div class="col-12 d-flex">
 				<!-- Ver todos os baralhos -->
@@ -42,7 +41,6 @@
 				</form>
 			</div>
 		</div>
-
 		<!-- Cartas -->
 		<div class="row mt-4">
 			<?php
@@ -53,7 +51,6 @@
 			?>
 		</div>
 	</div>
-
 	<!-- Confirmação de exclusão da carta -->
 	<div class="modal fade" id="deleteCardPrompt" tabindex="-1" aria-labelledby="deleteCardPromptLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -78,7 +75,6 @@
 			</div>
 		</div>
 	</div>
-
 	<?php require "templates/script.php"; ?>
 	<script src="scripts/deck.js"></script>
 </body>

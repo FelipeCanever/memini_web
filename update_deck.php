@@ -5,11 +5,13 @@ require "utils.php";
 
 session_start();
 
+// Sair caso uma requisição de atualização não tenha sido feita.
 if (!isset($_GET["update_deck"])) {
 	redirect("index.php");
 	exit();
 }
 
+// Possíveis problemas de validação.
 $_SESSION["problems"] = [];
 
 $deck = new Deck(
@@ -18,6 +20,7 @@ $deck = new Deck(
 	intval($_GET["deck_id"])
 );
 
+// Voltar ao formulário caso já exista um baralho igual.
 if ($database->deckExists($_SESSION["user"], $deck)) {
 	$_SESSION["problems"]["title"] = "Já existe um baralho com esse nome.";
 

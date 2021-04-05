@@ -8,10 +8,8 @@
 	
 	session_start();
 ?>
-
 <body>
 	<?php require "templates/navbar.php"; ?>
-
 	<div class="container">
 		<!-- Título -->
 		<div class="row">
@@ -25,7 +23,6 @@
 				</p>
 			</div>
 		</div>
-
 		<!-- Subtítulo -->
 		<div class="row">
 			<div class="col">	
@@ -40,7 +37,6 @@
 				<?php endif; ?>
 			</div>
 		</div>
-
 		<!-- Baralhos -->
 		<?php if (is_logged_in()): ?>
 			<!-- Novo baralho -->
@@ -49,7 +45,7 @@
 					<input type="submit" name="new_deck" value="Novo baralho" class="btn btn-outline-success">
 				</form>
 			</div>
-
+			<!-- Baralhos -->
 			<div class="row mt-4">
 				<?php
 					$decks = $database->selectDecks($_SESSION["user"]);
@@ -60,7 +56,6 @@
 			</div>
 		<?php endif; ?>
 	</div>
-
 	<!-- Confirmação de exclusão da baralho -->
 	<div class="modal fade" id="deleteDeckPrompt" tabindex="-1" aria-labelledby="deleteDeckPromptLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -84,7 +79,6 @@
 			</div>
 		</div>
 	</div>
-
 	<?php require "templates/script.php"; ?>
 	<script src="scripts/decks.js"></script>
 </body>

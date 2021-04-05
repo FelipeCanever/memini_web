@@ -5,11 +5,13 @@ require "utils.php";
 
 session_start();
 
+// Sair caso uma requisição de inserção não tenha sido feita.
 if (!isset($_GET["insert_deck"])) {
 	redirect("index.php");
 	exit();
 }
 
+// Possíveis problemas de validação.
 $_SESSION["problems"] = [];
 
 $deck = new Deck(
@@ -17,6 +19,7 @@ $deck = new Deck(
 	$_GET["description"]
 );
 
+// Voltar para o formulário caso já exista um baralho igual.
 if ($database->deckExists($_SESSION["user"], $deck)) {
 	$_SESSION["problems"]["title"] = "Já existe um baralho com esse nome.";
 	

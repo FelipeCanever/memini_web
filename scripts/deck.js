@@ -1,9 +1,11 @@
+// Vira uma carta.
 function flipCard(cardId) {
 	const card = $(`#${cardId}`);
 	card.toggleClass("bg-light cardBack");
 	toggleFrontBack(card);
 }
 
+// Alterna entre a parte da frente e a parte de trás de uma carta.
 function toggleFrontBack(card) {
 	const cardId = card.attr("id");
 
@@ -14,6 +16,7 @@ function toggleFrontBack(card) {
 		element.toggle();
 }
 
+// Obter id. da carta em que o usuário apertou "Excluir".
 function setCardIdForDeletion(cardId) {
 	$(`#cardIdInput`).val(cardId);
 }
